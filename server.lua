@@ -1,6 +1,8 @@
-ESX = nil
+ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+
+--- Regisztrálás
 
 RegisterServerEvent('login:sendData')
 AddEventHandler('login:sendData', function (Username,Password)
@@ -12,7 +14,7 @@ AddEventHandler('login:sendData', function (Username,Password)
     local password = MySQL.Sync.fetchAll("SELECT password FROM login WHERE identifier = @identifier", {
         ['@identifier'] = xPlayer.getIdentifier()
     })
-    -- print(not #username, not #password)
+        -- Checkeli hogy van e már fiókja az adott játékosnak!
     if (#username > 0 and #password > 0) then
         TriggerClientEvent("login:youHaveAcc", src)
     else
@@ -25,6 +27,8 @@ AddEventHandler('login:sendData', function (Username,Password)
     end
 end)
 
+
+-- Bejelentkezés
 
 RegisterServerEvent('login:tryLogin')
 AddEventHandler('login:tryLogin', function (Username,Password)

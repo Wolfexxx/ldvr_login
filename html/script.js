@@ -16,10 +16,10 @@ window.addEventListener('message', function(event) {
 
 
 login.on('click', () => {
-    $.post('https://wolfex_login/login', JSON.stringify({name: username.val(), password: pass.val()}));
+    $.post('https://ldvr_login/login', JSON.stringify({name: username.val(), password: pass.val()}));
 })
 
 
 register.on('click', () =>{ 
-    $.post('https://wolfex_login/register', JSON.stringify({name: username.val(), password: pass.val()}));
+    $.post('https://ldvr_login/register', JSON.stringify({name: username.val(), password: pass.val()}));
 })
